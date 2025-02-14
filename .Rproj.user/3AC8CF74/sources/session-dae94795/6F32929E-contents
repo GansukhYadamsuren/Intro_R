@@ -1,0 +1,79 @@
+---
+title: "Оронзайн машин сургалтын аргачлал"
+author: "Ядамсүрэнгийн Гансүх"
+date: "2025-02-11"
+output: html_document
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Машин сургалт гэж юу вэ?
+### Үндсэн ойлголт
+
+Машин сургалтын онолын тайлбар, мөн тэдгээрийн талаар олон зүйлс хэвлэгдсэн байдаг. Энэ бүхнийг нэг бүрчлэн дурдах нь төвөгтэй учир хамгийн чухал амин сүнсийг нь авч ярилцья аа. Гэхдээ бидний сүүлийн үед ашиглаж буй олон package, хэрэглүүр бүгд нээлттэй эхийн гэдгийг ямагт санана уу?
+
+<https://bradleyboehmke.github.io/HOML/>.
+
+Машин сургалтын загалмайлсан эцэг нь **Breiman** юм аа.
+
+```{r cars}
+summary(cars)
+```
+#### _Нэг амар жишээ үзүүлье дээ._
+
+## Including Plots
+* one item
+* one item
+* one item
+    * one item
+    * one item
+You can also embed plots, for example:
+
+> "I thoroughly disapprove of duels. If a man should challenge me,
+  I would take him kindly and forgivingly by the hand and lead him
+  to a quiet place and kill him."
+>
+> --- Mark Twain
+
+::: {.theorem}
+This is a `theorem` environment that can contain **any**
+_Markdown_ syntax.
+:::
+
+::: {.theorem name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+$$a^2 + b^2 = c^2$$
+:::
+
+```{r chunk_label, echo=TRUE, fig.cap='A'}
+1 + 1
+rnorm(10)  # 10 random numbers
+plot(dist ~ speed, cars)  # a scatterplot
+```
+
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+```{r new_plot, echo=TRUE, fig.width=4, fig.asp=0.7, fig.align = 'left', fig.cap='FIGURE 2.1: A figure example with the specified aspect ratio, width, and alignment.' }
+par(mar = c(4, 4, 0.1, 0.1))
+plot(pressure, pch = 19, type = "b")
+```
+
+```{r }
+par(mar = c(4, 4, 0.1, 0.1))
+plot(cars, pch = 19)
+```
+
+Хашсан булгийн эх
+
+```{r echo=FALSE, fig.width=6, fig.asp=0.7, fig.align = 'left', fig.cap='FIGURE 2.1: Хашсан булгийн эх.'}
+knitr::include_graphics(rep("images/knit-logo.png", 1))
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

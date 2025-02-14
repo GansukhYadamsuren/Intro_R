@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>R программын танилцуулга</title>
+  <meta name="description" content="R программын танилцуулга" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="R программын танилцуулга" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R программын танилцуулга" />
+  
+  
+  
+
+<meta name="author" content="Я.Гансүх" />
+
+
+<meta name="date" content="2024-11-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path=""><a href="#r-болон-rstudio-г-танин-мэдэх-ашиглах"><i class="fa fa-check"></i><b>1</b> <strong>R болон RStudio-г танин мэдэх, ашиглах</strong></a></li>
+<li class="chapter" data-level="2" data-path=""><a href="#r-г-тооны-машин-шиг-ашиглая"><i class="fa fa-check"></i><b>2</b> <strong>R-г тооны машин шиг ашиглая!</strong></a></li>
+<li class="chapter" data-level="3" data-path=""><a href="#объектуудыг-r-дээр-зохион-байгуулах"><i class="fa fa-check"></i><b>3</b> <strong>Объектуудыг R дээр зохион байгуулах!</strong></a></li>
+<li class="chapter" data-level="4" data-path=""><a href="#өгөгдлийн-төрөл-болон-бүтэц"><i class="fa fa-check"></i><b>4</b> <strong>Өгөгдлийн төрөл болон бүтэц</strong></a></li>
+<li class="chapter" data-level="5" data-path=""><a href="#индексжүүлэлт-indexing"><i class="fa fa-check"></i><b>5</b> <strong>Индексжүүлэлт (indexing)</strong></a></li>
+<li class="chapter" data-level="6" data-path=""><a href="#функц-function"><i class="fa fa-check"></i><b>6</b> <strong>Функц (function)</strong></a></li>
+<li class="chapter" data-level="7" data-path=""><a href="#r-package-суулгах-ашиглах"><i class="fa fa-check"></i><b>7</b> <strong>R package суулгах, ашиглах</strong></a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R программын танилцуулга</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R программын танилцуулга</h1>
+<p class="author"><em>Я.Гансүх</em></p>
+<p class="date"><em>2024-11-01</em></p>
+</div>
+<div id="r-болон-rstudio-г-танин-мэдэх-ашиглах" class="section level3 hasAnchor" number="1">
+<h3><span class="header-section-number">1</span> <strong>R болон RStudio-г танин мэдэх, ашиглах</strong><a href="#r-болон-rstudio-г-танин-мэдэх-ашиглах" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R программ суулгах: <a href="http://www.r-project.org/" class="uri">http://www.r-project.org/</a>.</p>
+<p>RStudio суулгах: <a href="http://www.rstudio.com/" class="uri">http://www.rstudio.com/</a>.</p>
+<div id="r-гэж-юу-вэ" class="section level4 hasAnchor" number="1.1">
+<h4><span class="header-section-number">1.1</span> <strong>R гэж юу вэ?</strong><a href="#r-гэж-юу-вэ" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>R бол үнэгүй нээлттэй эхийн програмчлалын хэл, орчин юм.</li>
+<li>Энэ нь өгөгдлийн шинжилгээ, график, өгөгдлийн симуляцид зориулагдсан.</li>
+<li>Энэ нь статистик, програмчлалын дэлхийн тэргүүлэх программ хангамж, цогц систем юм.</li>
+</ul>
+</div>
+<div id="яагаад-r-ашиглах-ёстой-вэ" class="section level4 hasAnchor" number="1.2">
+<h4><span class="header-section-number">1.2</span> <strong>Яагаад R ашиглах ёстой вэ?</strong><a href="#яагаад-r-ашиглах-ёстой-вэ" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>R бол үнэ төлбөргүй, нээлттэй эх сурвалж: танд болон хүн бүрт зориулагдсан;</li>
+<li>R нь түгээмэл хэрэглээтэй: өргөн хүрээтэй хэрэглэгчийн бааз нь статистикийн хэрэгслийг үргэлжлүүлэн хөгжүүлэх, хадгалахад тусалдаг;</li>
+<li>R нь хүчирхэг: Та нарийн төвөгтэй симуляцийг програмчилж болно.</li>
+<li>R бүх өргөтгөлүүдийг дэмждэг.</li>
+<li>R нь ихэнх үйлдлийн системүүд дээр ажилладаг, бусад хэлтэй холбогддог: C++, Java, Python, Julia, Stan болон бусад!</li>
+</ul>
+<p>Нэмэлт программ, ажиллагаа шаардахгүйгээр шууд үр дүн, тайлан хийж болно.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="Images/01.png" alt="**_Зураг 1. R программ ашигласнаар үүсэх давуу тал_**" width="593" />
+<p class="caption">
+Figure 1: <strong><em>Зураг 1. R программ ашигласнаар үүсэх давуу тал</em></strong>
+</p>
+</div>
+<p>Жил бүр илүү олон эрдэмтэд ашигласаар байна!
+2025 оны 2-р сарын байдлаар Comprehensive R Archive Network (CRAN)-д 22000 гаруй багц (мөн Github repositories дотор олон мянган багц) бүртгэгдсэн байна!</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="Images/02.png" alt="**_Зураг 2. R программ ашигласнаар үүсэх давуу тал_**" width="50%" />
+<p class="caption">
+Figure 2: <strong><em>Зураг 2. R программ ашигласнаар үүсэх давуу тал</em></strong>
+</p>
+</div>
+<p>Төрөл бүрийн дүн шинжилгээнүүдийг өөр өөр төрлөөр нэг талбар дээр харуулах бүрэн боломжтой байдаг.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="Images/03.png" alt="**_Зураг 3. Эдгээр бүх графикыг R ᠋программ дээр хийсэн._**" width="70%" />
+<p class="caption">
+Figure 3: <strong><em>Зураг 3. Эдгээр бүх графикыг R ᠋программ дээр хийсэн.</em></strong>
+</p>
+</div>
+</div>
+<div id="rstudio-гэж-юу-вэ" class="section level4 hasAnchor" number="1.3">
+<h4><span class="header-section-number">1.3</span> <strong>RStudio гэж юу вэ?</strong><a href="#rstudio-гэж-юу-вэ" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>RStudio нь R-д зориулсан хамгийн их ашиглагддаг функц, үйлдлүүдийг нэгтгэн хөгжлүүлсэн талбар (IDE) юм.</li>
+<li>Энэ нь график, ажлын түүх, алдааг олох, ажлын талбарыг удирдах хэрэгсэл, шууд кодын гүйцэтгэлийг дэмждэг консол, синтакс тодруулагч хянагчийг агуулдаг.</li>
+<li>Энэ нь R (болон бусад програмчлалын хэлүүд) -тэй нэгтгэгдэж, олон ашигтай функцийг хангадаг.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="Images/04.png" alt="**_Зураг 4. RStudio программыг суулгасны дараа нээхэд дээрх байдалтай харагдана_**" width="70%" />
+<p class="caption">
+Figure 4: <strong><em>Зураг 4. RStudio программыг суулгасны дараа нээхэд дээрх байдалтай харагдана</em></strong>
+</p>
+</div>
+<ul>
+<li>Та RStudio-г анх удаа нээхэд дэлгэц нь гурван үндсэн самбар бүлэгт хуваагдана:
+<ul>
+<li>Console, Terminal, Job group;</li>
+<li>Environment, History, Connections group;</li>
+<li>Files, Plot, Packages, Help, Viewer panes; and, Script pane group.</li>
+</ul></li>
+<li>Скрипт нээх эсвэл шинэ скрипт үүсгэсний дараа (File &gt; New File &gt; R Script or Ctrl/Cmd + Shift + N) дөрөв дэх самбар гарч ирнэ!</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="Images/05.png" alt="**_Зураг 5. RStudio программын үндсэн самбарууд_**" width="70%" />
+<p class="caption">
+Figure 5: <strong><em>Зураг 5. RStudio программын үндсэн самбарууд</em></strong>
+</p>
+</div>
+<ul>
+<li>Ихэвчлэн console хэсэгт харагдах эхний текст нь RStudio-ийн ашиглаж байгаа R хувилбар юм.</li>
+<li>Console бол R таныг юу хийхийг хэлэхийг хүлээж байгаа газар бөгөөд тантай харилцах бөгөөд таны кодын тушаалын үр дүнг харуулдаг.</li>
+<li>R командыг хүлээн авахад бэлэн болсон үед <strong>&gt;</strong> prompt харуулах болно.</li>
+</ul>
+</div>
+</div>
+<div id="r-г-тооны-машин-шиг-ашиглая" class="section level3 hasAnchor" number="2">
+<h3><span class="header-section-number">2</span> <strong>R-г тооны машин шиг ашиглая!</strong><a href="#r-г-тооны-машин-шиг-ашиглая" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="арифметик-үйлдлүүд" class="section level4 hasAnchor" number="2.1">
+<h4><span class="header-section-number">2.1</span> <strong>Арифметик үйлдлүүд</strong><a href="#арифметик-үйлдлүүд" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Нэмэх, хасах үйлдлүүдийг ашиглан үр дүн шууд гарган авах боломжтой.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p>Үржих, хуваа үйлдлүүд мөн адил байна.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="dv">8</span> <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Зэрэгт дэвшүүлэхдээ <strong>^</strong> тэмдэгтийг ашиглана.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="dv">3</span><span class="sc">^</span><span class="dv">4</span></span></code></pre></div>
+<pre><code>## [1] 81</code></pre>
+<p>Эдгээр үйлдлүүдийг нэгэн зэрэг ашиглах боломжтой бөгөөд бодолтын дараалал нь R эх хэлэнд програмчлагдсан байдаг.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">16</span> <span class="sc">*</span> <span class="dv">24</span> <span class="sc">-</span> <span class="dv">56</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">457</span></span></code></pre></div>
+<pre><code>## [1] -89.66667</code></pre>
+<p>Энгийн бодолт хийж үзье: Тойргийн радиус 5 см бол талбайг олно уу?
+Бодолтын томьёо нь <span class="math display">\[Area = pi * r^2\]</span> байх бөгөөд R программын консол дээр дараах байдлаар бичнэ.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fl">3.1416</span> <span class="sc">*</span> <span class="dv">5</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 78.54</code></pre>
+<p>Мөн математик тооцооны тогтмол утгууд R эх хэлэнд програмчлагдсан байдаг.
+Иймд шууд <strong>pi</strong> гэж бичиж болно.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>pi <span class="sc">*</span> <span class="dv">5</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 78.53982</code></pre>
+</div>
+</div>
+<div id="объектуудыг-r-дээр-зохион-байгуулах" class="section level3 hasAnchor" number="3">
+<h3><span class="header-section-number">3</span> <strong>Объектуудыг R дээр зохион байгуулах!</strong><a href="#объектуудыг-r-дээр-зохион-байгуулах" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="r-нь-объектод-суурилсан-орчин-юм." class="section level4 hasAnchor" number="3.1">
+<h4><span class="header-section-number">3.1</span> <strong>R нь объектод суурилсан орчин юм.</strong><a href="#r-нь-объектод-суурилсан-орчин-юм." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Та <strong>&lt;-</strong> хуваарилах операторыг ашиглан нэрлэсэн объектуудад мэдээлэл өгч болно.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>Four_letters <span class="ot">&lt;-</span> <span class="st">&quot;ACDC&quot;</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>Four_letters</span></code></pre></div>
+<pre><code>## [1] &quot;ACDC&quot;</code></pre>
+<p>Өөрөөр хэлбэл, “ACDC” объектод Four_letters утга оноож (оноосон нэр) өгснөөр Four_letters-ийг дуудахад “ACDC”-аар хариу өгдөг.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>my_birthday_month <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>my_birthday_month</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>Бодолтын_хариу <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">16</span> <span class="sc">*</span> <span class="dv">24</span> <span class="sc">-</span> <span class="dv">56</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">457</span></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>Бодолтын_хариу</span></code></pre></div>
+<pre><code>## [1] -89.66667</code></pre>
+<p><strong>Анхаараарай!</strong> Бага (&lt;) болон хасах (-) тэмдгүүдийн хооронд зай авахгүй, шууд бичигдсэн <strong>&lt;-</strong> байх хэрэгтэй.</p>
+</div>
+<div id="объектыг-нэрлэх-дүрэм" class="section level4 hasAnchor" number="3.2">
+<h4><span class="header-section-number">3.2</span> <strong>Объектыг нэрлэх дүрэм</strong><a href="#объектыг-нэрлэх-дүрэм" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Объектуудын нэрэнд зөвхөн дараах зүйлс багтаж болно:</p>
+<ul>
+<li>Үсэг: a-z, A-Z (Монгол хэлний крилл үсгийг ашиглаж болох ч зарим тохиодолд алдаа заадаг.)</li>
+<li>Тоо: 0-9</li>
+<li>Тэмдэгт: цэг (<strong>.</strong>) болон доогуур зураас (_) ашиглаж болно.</li>
+</ul>
+<p>Цаашид анхаарах энгийн дүрмүүд:</p>
+<ul>
+<li>Объектуудын нэр ямагт үсгээр эхлэх ёстой. <strong>Forest_data001</strong> эсвэл <strong>F_data_001</strong></li>
+<li>R дээр том, жижиг үсгүүд ялгаатай. <strong>Data_1</strong> нь <strong>data_1</strong>-ээс өөр.</li>
+<li>Тусгай тэмдэгт <strong>(@, /, # гэх мэт)</strong> ашиглах боломжгүй.</li>
+<li>Объектын нэр өвөрмөц, дахин давтагдахгүй байх ёстой. <strong>data_1 &lt;- 1</strong> нь өмнө нь үүсгэсэн <strong>data_1</strong> нэртэй объектуудыг дарж шинэ объект үүсгэдэг.</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>Forest_data001 <span class="ot">&lt;-</span> <span class="dv">2025</span></span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>Forest_data001</span></code></pre></div>
+<pre><code>## [1] 2025</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>F_data_001 <span class="ot">&lt;-</span> <span class="dv">2024</span></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>F_data_001</span></code></pre></div>
+<pre><code>## [1] 2024</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>Data_1 <span class="ot">&lt;-</span> <span class="st">&quot;Том үсгээр эхэлсэн 1-р өгөгдөл&quot;</span></span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a>Data_1</span></code></pre></div>
+<pre><code>## [1] &quot;Том үсгээр эхэлсэн 1-р өгөгдөл&quot;</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>data_1 <span class="ot">&lt;-</span> <span class="st">&quot;жижиг үсгээр эхэлсэн 1-р өгөгдөл&quot;</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>data_1</span></code></pre></div>
+<pre><code>## [1] &quot;жижиг үсгээр эхэлсэн 1-р өгөгдөл&quot;</code></pre>
+<p>Объектыг нэрлэх, код бичих анхаарах зүйлс:</p>
+<ul>
+<li>Богино, тодорхой нэр илүү тохиромжтой байдаг.</li>
+<li>Хувьсагчийг <strong>var</strong> гэж нэрлэх нь төөрөгдөл үүсгэнэ.</li>
+<li>Доогуур зураас ( _ ) эсвэл цэг ( . ) ашиглан нэр доторх үгсийг салгаж болно. <strong>avg_richness</strong> эсвэл <strong>avg.richness</strong> нь <strong>avgrichness</strong>-тэй харьцуулахад илүү хялбар уншигддаг</li>
+<li>Одоо байгаа функц эсвэл тогтмолуудын нэрийг (жишээ нь, <strong>c, хүснэгт, T, матриц</strong>) ашиглахаас зайлсхий.</li>
+<li>Кодыг уншихад хялбар болгохын тулд операторуудын <strong>(=, +, -, &lt;- гэх мэт)</strong> эргэн тойронд зай <strong>(space)</strong> авна уу.</li>
+<li>Таслалын дараа үргэлж зай <strong>(space)</strong> авна уу.</li>
+</ul>
+</div>
+</div>
+<div id="өгөгдлийн-төрөл-болон-бүтэц" class="section level3 hasAnchor" number="4">
+<h3><span class="header-section-number">4</span> <strong>Өгөгдлийн төрөл болон бүтэц</strong><a href="#өгөгдлийн-төрөл-болон-бүтэц" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="өгөгдлийн-төрөл-data-types" class="section level4 hasAnchor" number="4.1">
+<h4><span class="header-section-number">4.1</span> <strong>Өгөгдлийн төрөл (data types)</strong><a href="#өгөгдлийн-төрөл-data-types" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Өгөгдлийн төрлүүд нь R-дээрх утгууд, өгөгдлүүд хэрхэн хадгалагдахыг тодорхойлдог.</p>
+<p>Бид typeof() функцыг ашиглан объектын төрөл, горимыг тодорхойлох боломжтой.
+Өгөгдлийн үндсэн төрлүүд нь:</p>
+<ul>
+<li>Тоон өгөгдөл - Numeric (integer-бүхэл, double-бутархай)</li>
+<li>Тэмдэгт өгөгдөл – Character (заавал “ ” хаалтанд байна)</li>
+<li>Логик өгөгдөл – Logical (TRUE or FALSE)</li>
+</ul>
+</div>
+<div id="өгөгдлийн-бүтэц-data-structures" class="section level4 hasAnchor" number="4.2">
+<h4><span class="header-section-number">4.2</span> <strong>Өгөгдлийн бүтэц (data structures)</strong><a href="#өгөгдлийн-бүтэц-data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Тоо эсвэл текстийн мөр зэрэг нэг төрлийн объектыг <strong>скаляр (scalar)</strong> бүтэцтэй өгөгдөл гэж нэрлэдэг.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a>a <span class="co"># </span></span></code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a>b</span></code></pre></div>
+<pre><code>## [1] 0.03</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>c <span class="ot">&lt;-</span> (a <span class="sc">+</span>b) <span class="sc">/</span> b</span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>c</span></code></pre></div>
+<pre><code>## [1] 3334.333</code></pre>
+<p><strong>a,b,c</strong> өгөгдөлүүд нь ямар нэг (ганцхан ширхэг) тоо агуулсан учир скаляр (scalar) бүтэц болно.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="st">&quot;species&quot;</span></span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a>d <span class="co"># </span></span></code></pre></div>
+<pre><code>## [1] &quot;species&quot;</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="st">&quot;тархалт&quot;</span></span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a>e</span></code></pre></div>
+<pre><code>## [1] &quot;тархалт&quot;</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">&quot;When is the next pause again?&quot;</span></span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>f</span></code></pre></div>
+<pre><code>## [1] &quot;When is the next pause again?&quot;</code></pre>
+<p><strong>d,e,f</strong> өгөгдөлүүд нь ямар нэг тэмдэгт (“” дотор учраас ганцхан тэмдэгт гэж үзнэ) агуулсан учир скаляр (scalar) бүтэц болно.</p>
+<p><strong>Вектор (vector)</strong> бүтэцтэй объект нь нэг объект хэлбэрээр хадгалагдсан хэд хэдэн <strong>скаляруудын нэгдэл</strong> юм.
+Скаляруудын нэгэн адил векторууд нь тоон, логик, тэмдэгтийн төрлүүд байж болох ч тэдгээрийг хэзээ ч хамтад нь бичиж болохгүй!</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-21"></span>
+<img src="Images/06.png" alt="**_Зураг 6. Скаляр болон вектор өгөгдлийн дүрслэл_**" width="30%" />
+<p class="caption">
+Figure 6: <strong><em>Зураг 6. Скаляр болон вектор өгөгдлийн дүрслэл</em></strong>
+</p>
+</div>
+<p>R дээр вектор бүтэцтэй өгөгдөл үүсгэх олон арга бий.
+Жишээлбэл:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-22">Table 1: </span>Хүснэгт 1. Зарим функцийн бичиглэлийн хэлбэр, жишээнүүд</caption>
+<colgroup>
+<col width="35%" />
+<col width="38%" />
+<col width="26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Function</th>
+<th align="center">Example</th>
+<th align="center">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">c(a, b, …)</td>
+<td align="center">c(1, 3, 5, 7, 9)</td>
+<td align="center">1, 3, 5, 7, 9</td>
+</tr>
+<tr class="even">
+<td align="center">a:b</td>
+<td align="center">1:5</td>
+<td align="center">1, 2, 3, 4, 5</td>
+</tr>
+<tr class="odd">
+<td align="center">seq(from, to, by, length.out)</td>
+<td align="center">seq(from = 0, to = 6, by = 2)</td>
+<td align="center">0, 2, 4, 6</td>
+</tr>
+<tr class="even">
+<td align="center">rep(x, times, each, length.out)</td>
+<td align="center">rep(c(7, 8), times = 2, each = 2)</td>
+<td align="center">7, 7, 8, 8, 7, 7, 8, 8</td>
+</tr>
+</tbody>
+</table>
+<p><strong>c()</strong> функц (combine нь нэгтгэх гэсэн үг бөгөөд тэдгээрийг нэгтгэх гэсэн утгатай) хэд хэдэн скалярыг аргумент болгон нэгтгэж, таслалаар тусгаарлаж, тэдгээрийг агуулсан векторыг үүсгэнэ.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;value1&quot;</span>, <span class="st">&quot;value2&quot;</span>, <span class="st">&quot;value3&quot;</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a>vector</span></code></pre></div>
+<pre><code>## [1] &quot;value1&quot; &quot;value2&quot; &quot;value3&quot;</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="fu">class</span>(vector)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p><strong>a:b</strong> нь аргумент болгон хоёр тоон скаляр бөгөөд эхний a тооноос b тоо хүртэлх 1 нэгжийн алхамтай тооны векторыг үүсгэнэ.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">8</span></span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6 7 8</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a><span class="fl">7.5</span><span class="sc">:</span><span class="fl">1.5</span></span></code></pre></div>
+<pre><code>## [1] 7.5 6.5 5.5 4.5 3.5 2.5 1.5</code></pre>
+<p><strong>seq()</strong> функц нь <strong>a:b</strong> адил тоон дараалал үүсгэх бөгөөд нэмэлтээр алхам буюу интервалыг (<strong>by</strong> аргументаар), мөн цувааны уртыг (<strong>lenth.out</strong> аргументаар) тус тус тодорхойлдог.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">20</span>, <span class="at">to =</span> <span class="dv">2</span>, <span class="at">by =</span> <span class="sc">-</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##  [1] 20 18 16 14 12 10  8  6  4  2</code></pre>
+<p><strong>rep()</strong> нь скаляр (эсвэл вектор)-ыг тодорхой тооны удаа эсвэл хүссэн урттай давтах боломжийг олгодог:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each =</span> <span class="dv">2</span>, <span class="at">times =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 1 2 2 3 3 1 1 2 2 3 3</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a><span class="fu">rep</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">each =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 1 1 1 2 2 2</code></pre>
+<p>Өгөгдлийн төрөл дээр суурилан вектор бүтцийг үүсгэж болдог.
+Жишээ нь:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a>num_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">32</span>, <span class="sc">-</span><span class="dv">76</span>, <span class="sc">-</span><span class="dv">4</span>)</span>
+<span id="cb61-2"><a href="#cb61-2" tabindex="-1"></a>num_vector</span></code></pre></div>
+<pre><code>## [1]   1   4  32 -76  -4</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a><span class="fu">class</span>(num_vector)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a>char_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;pink&quot;</span>)</span>
+<span id="cb65-2"><a href="#cb65-2" tabindex="-1"></a>char_vector</span></code></pre></div>
+<pre><code>## [1] &quot;blue&quot;  &quot;red&quot;   &quot;green&quot; &quot;pink&quot;</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a><span class="fu">class</span>(char_vector)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a>bool_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>) <span class="co"># or c(T, T, F)</span></span>
+<span id="cb69-2"><a href="#cb69-2" tabindex="-1"></a>bool_vector</span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" tabindex="-1"></a><span class="fu">class</span>(bool_vector)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p><strong>Матриц (matrix)</strong> бүтэц</p>
+<ul>
+<li>Скаляр нь нэг элемент, векторууд нь нэг төрлийн нэгээс олон скаляр агуулдаг.</li>
+<li>Матрицууд нь зэрэгцээ орших олон векторуудын нийлбэр юм.</li>
+<li>Векторууд нэг хэмжээстэй байхад матрицууд нь мөр, баганаар тодорхойлогддог хоёр хэмжээстэй байдаг.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-28"></span>
+<img src="Images/07.png" alt="**_Зураг 7. Скаляр, вектор болон матриц өгөгдлийн дүрслэл_**" width="40%" />
+<p class="caption">
+Figure 7: <strong><em>Зураг 7. Скаляр, вектор болон матриц өгөгдлийн дүрслэл</em></strong>
+</p>
+</div>
+<p>Матриц өгөгдлийг үүсгэж сурцгаая!</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb73-2"><a href="#cb73-2" tabindex="-1"></a>       <span class="at">nrow =</span> <span class="dv">5</span>,</span>
+<span id="cb73-3"><a href="#cb73-3" tabindex="-1"></a>       <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    6
+## [2,]    2    7
+## [3,]    3    8
+## [4,]    4    9
+## [5,]    5   10</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb75-2"><a href="#cb75-2" tabindex="-1"></a>       <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb75-3"><a href="#cb75-3" tabindex="-1"></a>       <span class="at">ncol =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    3    5    7    9
+## [2,]    2    4    6    8   10</code></pre>
+<p>Мөн бид <strong>cbind()</strong> (column binding) болон <strong>rbind()</strong> (row binding) ашиглан олон векторыг нэгтгэж болно.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" tabindex="-1"></a>nickname <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;kat&quot;</span>, <span class="st">&quot;gab&quot;</span>, <span class="st">&quot;lo&quot;</span>)</span>
+<span id="cb77-2"><a href="#cb77-2" tabindex="-1"></a>nickname</span></code></pre></div>
+<pre><code>## [1] &quot;kat&quot; &quot;gab&quot; &quot;lo&quot;</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" tabindex="-1"></a>animal <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dog&quot;</span>, <span class="st">&quot;mouse&quot;</span>, <span class="st">&quot;cat&quot;</span>)</span>
+<span id="cb79-2"><a href="#cb79-2" tabindex="-1"></a>animal</span></code></pre></div>
+<pre><code>## [1] &quot;dog&quot;   &quot;mouse&quot; &quot;cat&quot;</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" tabindex="-1"></a><span class="fu">cbind</span>(nickname, animal) <span class="co"># босоо баганан байдлаар матриц өгөгдөл үүсгэх</span></span></code></pre></div>
+<pre><code>##      nickname animal 
+## [1,] &quot;kat&quot;    &quot;dog&quot;  
+## [2,] &quot;gab&quot;    &quot;mouse&quot;
+## [3,] &quot;lo&quot;     &quot;cat&quot;</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" tabindex="-1"></a><span class="fu">rbind</span>(nickname, animal) <span class="co"># хэвтээ мөр байдлаар матриц өгөгдөл үүсгэх</span></span></code></pre></div>
+<pre><code>##          [,1]  [,2]    [,3] 
+## nickname &quot;kat&quot; &quot;gab&quot;   &quot;lo&quot; 
+## animal   &quot;dog&quot; &quot;mouse&quot; &quot;cat&quot;</code></pre>
+<p>Векторуудын нэгэн адил матриц дээр математик үйлдлүүд маш сайн ажилладаг.
+Матрицын зүй тогтлыг сайн ажиглаарай.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" tabindex="-1"></a>(mat_1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,</span>
+<span id="cb85-2"><a href="#cb85-2" tabindex="-1"></a>                 <span class="at">nrow =</span> <span class="dv">3</span>,</span>
+<span id="cb85-3"><a href="#cb85-3" tabindex="-1"></a>                 <span class="at">ncol =</span> <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" tabindex="-1"></a>(mat_2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb87-2"><a href="#cb87-2" tabindex="-1"></a>                 <span class="at">nrow =</span> <span class="dv">3</span>,</span>
+<span id="cb87-3"><a href="#cb87-3" tabindex="-1"></a>                 <span class="at">ncol =</span> <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    9    6    3
+## [2,]    8    5    2
+## [3,]    7    4    1</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" tabindex="-1"></a>mat_1 <span class="sc">*</span> mat_2</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    9   24   21
+## [2,]   16   25   16
+## [3,]   21   24    9</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" tabindex="-1"></a>(step_1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb91-2"><a href="#cb91-2" tabindex="-1"></a>                  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb91-3"><a href="#cb91-3" tabindex="-1"></a>                  <span class="at">ncol =</span> <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" tabindex="-1"></a>(step_2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb93-2"><a href="#cb93-2" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="st">&quot;cheetah&quot;</span>, </span>
+<span id="cb93-3"><a href="#cb93-3" tabindex="-1"></a>           <span class="st">&quot;tiger&quot;</span>, </span>
+<span id="cb93-4"><a href="#cb93-4" tabindex="-1"></a>           <span class="st">&quot;ladybug&quot;</span>,</span>
+<span id="cb93-5"><a href="#cb93-5" tabindex="-1"></a>           <span class="st">&quot;deer&quot;</span>,</span>
+<span id="cb93-6"><a href="#cb93-6" tabindex="-1"></a>           <span class="st">&quot;monkey&quot;</span>,</span>
+<span id="cb93-7"><a href="#cb93-7" tabindex="-1"></a>           <span class="st">&quot;crocodile&quot;</span>),</span>
+<span id="cb93-8"><a href="#cb93-8" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb93-9"><a href="#cb93-9" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>##      [,1]      [,2]      [,3]       
+## [1,] &quot;cheetah&quot; &quot;ladybug&quot; &quot;monkey&quot;   
+## [2,] &quot;tiger&quot;   &quot;deer&quot;    &quot;crocodile&quot;</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" tabindex="-1"></a>Merged_matrix <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">c</span>(step_1), <span class="fu">c</span>(step_2))</span>
+<span id="cb95-2"><a href="#cb95-2" tabindex="-1"></a>Merged_matrix</span></code></pre></div>
+<pre><code>##      [,1] [,2]       
+## [1,] &quot;1&quot;  &quot;cheetah&quot;  
+## [2,] &quot;2&quot;  &quot;tiger&quot;    
+## [3,] &quot;3&quot;  &quot;ladybug&quot;  
+## [4,] &quot;4&quot;  &quot;deer&quot;     
+## [5,] &quot;5&quot;  &quot;monkey&quot;   
+## [6,] &quot;6&quot;  &quot;crocodile&quot;</code></pre>
+<p><strong>Data.frame</strong> бүтэц нь матрицаас ялгаатай нь өгөгдлийн хүрээ нь тоон, тэмдэгт, логик багана (эсвэл вектор) агуулж болно.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-38"></span>
+<img src="Images/08.png" alt="**_Зураг 7. Скаляр, вектор, матриц болон дата.фрэйм (data frame) өгөгдлийн дүрслэл_**" width="50%" />
+<p class="caption">
+Figure 8: <strong><em>Зураг 7. Скаляр, вектор, матриц болон дата.фрэйм (data frame) өгөгдлийн дүрслэл</em></strong>
+</p>
+</div>
+<p>Бодит амьдрал, судалгааны ажил олон төрлийн холимог өгөгдөл ашигладаг бөгөөд цаашдын хичээл, алхамуудад нилээн их ашиглагдах болно.
+Хөрсний судалгааны ажлын хэсэгхэн үр дүнг жишээ байдлаар харуулья:</p>
+<ul>
+<li>site_id дээж авсан газрын дугаар;</li>
+<li>soil_pH хөрсний уусмалын орчин;</li>
+<li>num_sp төрөл зүйлийн тоо;</li>
+<li>fertilised бордоо хэрэглэсэн эсэх;</li>
+</ul>
+<table>
+<caption><span id="tab:unnamed-chunk-39">Table 2: </span>Хүснэгт 2. Хөрсний судалгааны ажлын үр дүнгээс</caption>
+<thead>
+<tr class="header">
+<th align="center">site_id</th>
+<th align="center">soil_pH</th>
+<th align="center">num_sp</th>
+<th align="center">fertilised</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">A1.01</td>
+<td align="center">5.6</td>
+<td align="center">17</td>
+<td align="center">yes</td>
+</tr>
+<tr class="even">
+<td align="center">A1.02</td>
+<td align="center">7.3</td>
+<td align="center">23</td>
+<td align="center">yes</td>
+</tr>
+<tr class="odd">
+<td align="center">B1.01</td>
+<td align="center">4.1</td>
+<td align="center">15</td>
+<td align="center">no</td>
+</tr>
+<tr class="even">
+<td align="center">B1.02</td>
+<td align="center">6.0</td>
+<td align="center">7</td>
+<td align="center">no</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" tabindex="-1"></a>site_id <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A1.01&quot;</span>, <span class="st">&quot;A1.02&quot;</span>, <span class="st">&quot;B1.01&quot;</span>, <span class="st">&quot;B1.02&quot;</span>)</span>
+<span id="cb97-2"><a href="#cb97-2" tabindex="-1"></a>soil_pH <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.6</span>, <span class="fl">7.3</span>, <span class="fl">4.1</span>, <span class="fl">6.0</span>)</span>
+<span id="cb97-3"><a href="#cb97-3" tabindex="-1"></a>num_sp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">23</span>, <span class="dv">15</span>, <span class="dv">7</span>)</span>
+<span id="cb97-4"><a href="#cb97-4" tabindex="-1"></a>fertilised <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>, <span class="st">&quot;no&quot;</span>)</span>
+<span id="cb97-5"><a href="#cb97-5" tabindex="-1"></a>soil_fertilisation_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(site_id, soil_pH, num_sp, fertilised)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" tabindex="-1"></a>soil_fertilisation_data</span></code></pre></div>
+<pre><code>##   site_id soil_pH num_sp fertilised
+## 1   A1.01     5.6     17        yes
+## 2   A1.02     7.3     23        yes
+## 3   B1.01     4.1     15         no
+## 4   B1.02     6.0      7         no</code></pre>
+</div>
+</div>
+<div id="индексжүүлэлт-indexing" class="section level3 hasAnchor" number="5">
+<h3><span class="header-section-number">5</span> <strong>Индексжүүлэлт (indexing)</strong><a href="#индексжүүлэлт-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Бид өөрсдийн өгөгдөл, мэдээллийг вектор, матриц эсвэл data.frame хэлбэрээр R-д хадгалдаг.
+Зарим тохиолдолд тодорхой шалгуурын дагуу зөвхөн тухайн өгөгдлийг харах, ашиглах эсвэл янз бүрийн байдлаар хуваах, бүлэглэх хэрэгцээ шаардлага үүсэж байдаг.</p>
+<p>Бид <strong>хаалт [ ]</strong> дотор харахыг хүссэн утгуудын байрлалыг зааж өгч болно.
+Үүнийг ихэвчлэн индексжүүлэх эсвэл хуваалт гэж нэрлэдэг.
+Индексжүүлэлтийн гол бичиглэл нь: дөрвөлжин хаалт [ ] ба [ , ].</p>
+<p>Вектор доторх элементийг [ ] ашиглан тухайн элементийг дуудахын тулд [ ] хаалтанд тухайн элементийн байрлалын дугаарыг бичих хэрэгтэй.
+Энэхүү байрлалын дугаар нь өгөгдлийн утгаас үл хамааран <strong>,</strong> хязгаарлагдсан элементүүдийг 1-ээс эхлэн бүхэл тоон дарааллаар дугаарласныг хэлнэ.</p>
+<p>Жишээлбэл, 1-ээс 9 хүртлэх сондгой тооны <strong>odd_n</strong> нэртэй цуваа үүсгэе.
+Энэхүү вектор өгөгдөл 5 тооноос (1, 3, 5, 7, 9) бүрдэх бөгөөд 1-ээс 5 хүртэл дугаарлагдсан буюу индексжсэн байдаг.
+<strong>odd_n[2]</strong> коммандаар 2-р утгыг сонгож уншуулахад <strong>3</strong> гэсэн хариу гарна.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" tabindex="-1"></a>(odd_n <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>, <span class="at">by =</span> <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" tabindex="-1"></a>odd_n[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Бид мөн вектор доторх олон байрлалын утгыг <strong>c()</strong> коммандаар уншуулж болно.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" tabindex="-1"></a>odd_n[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>## [1] 3 7</code></pre>
+<p>Мөн бид тодорхой байрлалд хамаарах утгыг векторын утгын өмнөх хасах (-) тэмдгийг ашиглан харуулахгүй байж болно.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" tabindex="-1"></a>odd_n[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<pre><code>## [1] 5 7 9</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" tabindex="-1"></a>odd_n[<span class="sc">-</span><span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] 1 3 5 9</code></pre>
+<p>num_vector гэсэн нэр бүхий вектор дээр дараах үйлдлийг хийж үзье:</p>
+<ul>
+<li>4-р утгыг гарган авах;</li>
+<li>1 ба 3-р утгыг гарган авах;</li>
+<li>2 ба 4-өөс бусад бүх утгыг гарган авах;</li>
+<li>6-аас 10-р утгыг гарган авах.</li>
+</ul>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" tabindex="-1"></a>num_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">98</span>, <span class="dv">32</span>, <span class="sc">-</span><span class="dv">76</span>, <span class="sc">-</span><span class="dv">4</span>)</span>
+<span id="cb110-2"><a href="#cb110-2" tabindex="-1"></a>num_vector[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] 98</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" tabindex="-1"></a>num_vector[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div>
+<pre><code>## [1] 1 3</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" tabindex="-1"></a>num_vector[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>## [1]   1   3  32 -76  -4</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" tabindex="-1"></a>num_vector[<span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>## [1] -76  -4  NA  NA  NA</code></pre>
+<p><strong>Data.frame</strong> болон <strong>матриц</strong> дээр мөр, баганын дугаарыг ашиглан элементийг дуудах боломжтой.
+Үндсэн зарчим тухайн аливаа нэг утга нь мөр, баганын уулзвар дээр байна.
+data_frame_name[row_number, column_number] бүтэцтэй өгөгдлийн хувьд:</p>
+<ul>
+<li>my_df[1, ] (1-р мөрийг бүхлээр нь дуудах)</li>
+<li>my_df[, 3] (3-р баганыг бүхлээр нь дуудах)</li>
+<li>my_df[2, 4] (2-р мөрний 4-р баганад харгалзах утгыг дуудах)</li>
+</ul>
+<p>Эдгээр нь та бидний хүүхэд ахуй цагтаа тоглодог байсан <strong>онгоц буудах</strong> тоглоомын дүрэмтэй яг адилхан юм.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-46"></span>
+<img src="Images/09.png" alt="**_Зураг 9. Онгоц буудах тоглоомын үед  мөр, баганын дугаар ашиглан хэлдэг_**" width="30%" />
+<p class="caption">
+Figure 9: <strong><em>Зураг 9. Онгоц буудах тоглоомын үед мөр, баганын дугаар ашиглан хэлдэг</em></strong>
+</p>
+</div>
+<p>Бид бүхэн өмнө нь <strong>soil_fertilisation_data</strong> нэртэй өгөгдөл үүсгэсэн, эндээс зөвхөн судалгааны байршлын дугаарыг, уусмалын орчны дүнтэй харах тохиолдолд:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" tabindex="-1"></a>soil_fertilisation_data</span></code></pre></div>
+<pre><code>##   site_id soil_pH num_sp fertilised
+## 1   A1.01     5.6     17        yes
+## 2   A1.02     7.3     23        yes
+## 3   B1.01     4.1     15         no
+## 4   B1.02     6.0      7         no</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" tabindex="-1"></a>soil_fertilisation_data[ , <span class="fu">c</span>(<span class="st">&quot;site_id&quot;</span>, <span class="st">&quot;soil_pH&quot;</span>)]</span></code></pre></div>
+<pre><code>##   site_id soil_pH
+## 1   A1.01     5.6
+## 2   A1.02     7.3
+## 3   B1.01     4.1
+## 4   B1.02     6.0</code></pre>
+<p>Өгөгдөл салган харах өөр нэг арга нь <strong>$</strong> тэмдэгт ашиглах юм.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" tabindex="-1"></a>soil_fertilisation_data<span class="sc">$</span>soil_pH</span></code></pre></div>
+<pre><code>## [1] 5.6 7.3 4.1 6.0</code></pre>
+<p>Бид аливаа нэг нөхцлөөр ҮНЭН эсвэл ХУДАЛ утгыг авахын тулд төрөл бүрийн операторуудыг ашиглаж болно.
+Доорх жишээнүүдийг харна уу: <strong>odd_n</strong> нь 1, 3, 5, 7, 9-г агуулж байгаа болно.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-49">Table 3: </span>Хүснэгт 3. Логик өгөгдлийг индексийн утга бүрд тодорхой нөхцөлтэйгээр ашиглах нь</caption>
+<colgroup>
+<col width="11%" />
+<col width="24%" />
+<col width="33%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Operator</th>
+<th align="center">Description</th>
+<th align="center">Example</th>
+<th align="center">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">&lt; and &gt;</td>
+<td align="center">less than or greater than</td>
+<td align="center">odd_n &gt; 3</td>
+<td align="center">FALSE, FALSE, TRUE, TRUE, TRUE</td>
+</tr>
+<tr class="even">
+<td align="center">&lt;= and &gt;=</td>
+<td align="center">less/greater or equal to</td>
+<td align="center">odd_n &gt;= 3</td>
+<td align="center">FALSE, TRUE, TRUE, TRUE, TRUE</td>
+</tr>
+<tr class="odd">
+<td align="center">==</td>
+<td align="center">exactly equal to</td>
+<td align="center">odd_n == 3</td>
+<td align="center">FALSE, TRUE, FALSE, FALSE, FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">!=</td>
+<td align="center">not equal to</td>
+<td align="center">odd_n != 3</td>
+<td align="center">TRUE, FALSE, TRUE, TRUE, TRUE</td>
+</tr>
+<tr class="odd">
+<td align="center">x | y</td>
+<td align="center">x OR y</td>
+<td align="center">odd_n[odd_n &gt;= 5 | odd_n &lt; 3]</td>
+<td align="center">1, 5, 7, 9</td>
+</tr>
+<tr class="even">
+<td align="center">x &amp; y</td>
+<td align="center">x AND y</td>
+<td align="center">odd_n[odd_n &gt;=3 &amp; odd_n &lt; 7]</td>
+<td align="center">3, 5</td>
+</tr>
+<tr class="odd">
+<td align="center">x %in% y</td>
+<td align="center">x match y</td>
+<td align="center">odd_n[odd_n %in% c(3,7)]</td>
+<td align="center">3, 7</td>
+</tr>
+</tbody>
+</table>
+<p>Өгөгдлийн бүтцүүдийг харьцуулан харах нь:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-50"></span>
+<img src="Images/10.png" alt="**_Зураг 10. Өгөгдлийн бүтцүүдийн ялгааг товчоор илэрхийлбэл_**" width="60%" />
+<p class="caption">
+Figure 10: <strong><em>Зураг 10. Өгөгдлийн бүтцүүдийн ялгааг товчоор илэрхийлбэл</em></strong>
+</p>
+</div>
+</div>
+<div id="функц-function" class="section level3 hasAnchor" number="6">
+<h3><span class="header-section-number">6</span> <strong>Функц (function)</strong><a href="#функц-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Функц нь математикийн алхам бүрийг бичих шаардлагагүйгээр объектууд дээр үйлдлийг хурдан гүйцэтгэх боломжийг олгодог.
+Өөрөөр хэлбэл, функц нь бидний амьдралыг хялбарчлах ёстой хэрэгсэл юм!
+Функцид аргумент (эсвэл параметр) буюу утгууд оруулах хэрэгтэй.
+Дараа нь эдгээр аргументуудыг ашиглан (функц ажиллах бөгөөд) үйлдлүүдийг хийж, гаралтыг үзүүлдэг.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-51"></span>
+<img src="Images/11.png" alt="**_Зураг 11. Функцын ажиллах зарчим_**" width="40%" />
+<p class="caption">
+Figure 11: <strong><em>Зураг 11. Функцын ажиллах зарчим</em></strong>
+</p>
+</div>
+<p>R программын хамгийн энгийн, их хэрэглэгддэг функц нь статистик бодолт болон график гаргах функцууд юм.</p>
+<ul>
+<li>sum(data), mean(data), median(data), sd(data), var(data), max(data), min(data), quantile(data), summary(data)</li>
+<li>plot(data)</li>
+</ul>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb124-2"><a href="#cb124-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb124-3"><a href="#cb124-3" tabindex="-1"></a>result_add <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
+<span id="cb124-4"><a href="#cb124-4" tabindex="-1"></a>result_add</span></code></pre></div>
+<pre><code>## [1] 3 4 5 6 7</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" tabindex="-1"></a>result_sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(a, b)</span>
+<span id="cb126-2"><a href="#cb126-2" tabindex="-1"></a>result_sum</span></code></pre></div>
+<pre><code>## [1] 17</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" tabindex="-1"></a>result_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(a, b)</span>
+<span id="cb128-2"><a href="#cb128-2" tabindex="-1"></a>result_mean</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb130-2"><a href="#cb130-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> a<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb130-3"><a href="#cb130-3" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb130-4"><a href="#cb130-4" tabindex="-1"></a><span class="fu">plot</span>(a, b, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb130-5"><a href="#cb130-5" tabindex="-1"></a><span class="fu">plot</span>(b, a, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb130-6"><a href="#cb130-6" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> a, <span class="at">y =</span> b, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb130-7"><a href="#cb130-7" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">y =</span> b, <span class="at">x =</span> a, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+</div>
+<div id="r-package-суулгах-ашиглах" class="section level3 hasAnchor" number="7">
+<h3><span class="header-section-number">7</span> <strong>R package суулгах, ашиглах</strong><a href="#r-package-суулгах-ашиглах" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="package-гэж-юу-вэ" class="section level4 hasAnchor" number="7.1">
+<h4><span class="header-section-number">7.1</span> <strong>Package гэж юу вэ?</strong><a href="#package-гэж-юу-вэ" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Package нь ямарваа эсвэл ижил төсөөтэй сэдвийн хүрээнд хамаарагдах өгөгдлийн багц, тэдгээрийн боломжит функцуудыг агуулсан багц хэрэглүүр юм.
+Жишээ нь: статистик, орон зайн шинжилгээ, график.</p>
+<p>Хэн ч package-г хөгжүүлж, боловсруулж болох бөгөөд бусдтай хуваалцах, ашиглах бүрэн боломжтойв</p>
+<p>Comprehensive R Archive Network (CRAN)-аар дамжуулан олон багцуудыг ашиглах боломжтой ба одоо GitHub болон бусад багцын сангууд дээр илүү олон багцууд байршдаг болсон.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-54"></span>
+<img src="Images/12.png" alt="**_Зураг 12. Бүх package-ийн талаарх мэдээлэл_** &lt;https://rdrr.io/&gt;" width="70%" />
+<p class="caption">
+Figure 12: <strong><em>Зураг 12. Бүх package-ийн талаарх мэдээлэл</em></strong> <a href="https://rdrr.io/" class="uri">https://rdrr.io/</a>
+</p>
+</div>
+</div>
+<div id="package-хэрхэн-суулгах-бэ" class="section level4 hasAnchor" number="7.2">
+<h4><span class="header-section-number">7.2</span> <strong>Package хэрхэн суулгах бэ?</strong><a href="#package-хэрхэн-суулгах-бэ" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Консолын мөрөнд дээрээ <strong>install.packages(“package_name”)</strong> гэж бичээд шууд уншуулж болно.
+Мөн RStudio программын цэсээс RStudio&gt;Tools&gt;Install packages гэж ороод гарч ирсэн цонх дээр package-ийн нэрээ бичээд суулгаж болно.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-55"></span>
+<img src="Images/13.png" alt="**_Зураг 13. Package суулгах харилцах цонх_** " width="70%" />
+<p class="caption">
+Figure 13: <strong><em>Зураг 13. Package суулгах харилцах цонх</em></strong>
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
